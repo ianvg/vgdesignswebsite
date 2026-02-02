@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Maps – Van Giesen Designs</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .map-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .map-tile {
+      background-color: #fffbe6;
+      border: 2px solid #A02020;
+      border-radius: 8px;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .map-tile:hover {
+      transform: scale(1.05);
+    }
+
+    .map-tile a {
+      text-decoration: none;
+      color: #A02020;
+      font-size: 18px;
+      font-weight: bold;
+      font-family: 'New Reader', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Van Giesen Designs</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+		<li><a href="mechanical-drawings.html">Mechanical Details</a></li>
+        <li><a href="mymaps.html">My Maps</a></li>
+		<li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Explore My Maps</h2>
+    <div class="map-gallery">
+      <div class="map-tile">
+        <a href="map.html">🚲 UGA Bike Parking Map</a>
+      </div>
+      <div class="map-tile">
+        <a href="map-benches.html">🗺️ UGA Bench Map</a>
+      </div>
+	        <div class="map-tile">
+        <a href="map-UGA_amenities.html">🗺️ UGA Amenities</a>
+      </div>
+      <!-- Add more map tiles as needed -->
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Van Giesen Designs. All rights reserved.</p>
+  </footer>
+</body>
+</html>

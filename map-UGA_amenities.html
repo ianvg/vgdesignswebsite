@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UGA Map – Bike Parking & Benches</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=New+Reader&display=swap');
+
+    body {
+      background-color: #FCE366;
+      font-family: 'New Reader', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #FCE366;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      color: #A02020;
+      margin-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      font-size: 18px;
+      font-family: 'New Reader', sans-serif;
+      color: #A02020;
+    }
+
+    #map {
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      margin: 30px auto;
+      border: 4px solid #A02020;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      font-size: 14px;
+      padding: 10px;
+      background-color: #FCE366;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Van Giesen Designs</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mymaps.html">My Maps</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2>UGA Map: Bike Parking & Benches</h2>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([33.95, -83.38], 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Custom icons
+    const bikeIcon = L.icon({
+      iconUrl: 'bicycle_icon.svg',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    const benchIcon = L.icon({
+      iconUrl: 'bench_icon.svg',
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32]
+    });
+
+    // Layers
+    const bikeLayer = L.geoJSON(null, {
+      pointToLayer: (feature, latlng) => L.marker(latlng, { icon: bikeIcon }),
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        let popup = `<strong>${p.operator || "UGA"}</strong>`;
+        if (p.bicycle_parking) popup += `<br>Type: ${p.bicycle_parking}`;
+        if (p.capacity) popup += `<br>Capacity: ${p.capacity}`;
+        if (p.covered) popup += `<br>Covered: ${p.covered}`;
+        if (p.lit) popup += `<br>Lit: ${p.lit}`;
+        if (p.note) popup += `<br><em>${p.note}</em>`;
+        layer.bindPopup(popup);
+      }
+    });
+
+    const benchLayer = L.geoJSON(null, {
+      pointToLayer: (feature, latlng) => L.marker(latlng, { icon: benchIcon }),
+      onEachFeature: (feature, layer) => {
+        const p = feature.properties;
+        let popup = `<strong>${p.name || "Bench"}</strong>`;
+        if (p.material) popup += `<br>Material: ${p.material}`;
+        if (p.seats) popup += `<br>Seats: ${p.seats}`;
+        if (p.backrest) popup += `<br>Backrest: ${p.backrest}`;
+        if (p.armrest) popup += `<br>Armrest: ${p.armrest}`;
+        if (p.lit) popup += `<br>Lit: ${p.lit}`;
+        if (p.description) popup += `<br><em>${p.description}</em>`;
+        if (p.operator) popup += `<br>Operator: ${p.operator}`;
+        layer.bindPopup(popup);
+      }
+    });
+
+    // Fetch and add both GeoJSON layers
+    fetch('mapdata.geojson')
+      .then(res => res.json())
+      .then(data => bikeLayer.addData(data));
+
+    fetch('UGA_bench.geojson')
+      .then(res => res.json())
+      .then(data => benchLayer.addData(data));
+
+    // Add layers to map
+    const overlays = {
+      "🚲 Bicycle Parking": bikeLayer,
+      "🪑 Benches": benchLayer
+    };
+
+    L.control.layers(null, overlays, { collapsed: false }).addTo(map);
+
+    // Add both layers by default
+    bikeLayer.addTo(map);
+    benchLayer.addTo(map);
+  </script>
+
+  <footer>
+    <p>&copy; 2025 Van Giesen Designs. All rights reserved.</p>
+  </footer>
+</body>
+</html>

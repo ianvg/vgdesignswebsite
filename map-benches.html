@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UGA Bench Map</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=New+Reader&display=swap');
+
+    body {
+      background-color: #FCE366;
+      font-family: 'New Reader', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #FCE366;
+      padding: 20px;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      color: #A02020;
+      margin-bottom: 10px;
+    }
+	
+	nav ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	nav ul li {
+		display: inline;
+		margin-left: 20px;
+	}
+
+	nav ul li a {
+		text-decoration: none;
+		font-size: 18px;
+		font-weigt: light;
+		color: #A02020; /* Red text */
+		font-family: 'New Reader', sans-serif;
+	}
+
+    #map {
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      margin: 30px auto;
+      border: 4px solid #A02020;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      font-size: 14px;
+      padding: 10px;
+      background-color: #FCE366;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Van Giesen Designs</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mymaps.html">My Maps</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h2>University of Georgia Bench Map</h2>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([33.95, -83.38], 15); // Adjust as needed
+	
+	var benchIcon = L.icon({
+		iconUrl: 'bench_icon.svg',
+		iconSize: [40, 40],       // adjust size as needed
+		iconAnchor: [20, 40],     // point of the icon which corresponds to marker's location
+		popupAnchor: [0, -40]     // where the popup opens relative to the iconAnchor
+	});
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Load your GeoJSON file
+    fetch('UGA_bench.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+			pointToLayer: function (feature, latlng) {
+				return L.marker(latlng, { icon: benchIcon });
+			},
+			onEachFeature: function (feature, layer) {
+			  var p = feature.properties;
+			  var popupContent = `<strong>${p.name || "Bench"}</strong>`;
+
+			  if (p.material) popupContent += `<br>Material: ${p.material}`;
+			  if (p.seats) popupContent += `<br>Seats: ${p.seats}`;
+			  if (p.backrest) popupContent += `<br>Backrest: ${p.backrest}`;
+			  if (p.armrest) popupContent += `<br>Armrest: ${p.armrest}`;
+			  if (p.lit) popupContent += `<br>Lit: ${p.lit}`;
+			  if (p.description) popupContent += `<br><em>${p.description}</em>`;
+			  if (p.operator) popupContent += `<br>Operator: ${p.operator}`;
+
+			  layer.bindPopup(popupContent);
+			}
+        }).addTo(map);
+      });
+  </script>
+  <footer>
+    <p>&copy; 2025 Van Giesen Designs. All rights reserved.</p>
+  </footer>
+</body>
+</html>

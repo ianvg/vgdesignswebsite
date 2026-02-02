@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mechanical Drawing Details – Van Giesen Designs</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .drawing-tile {
+      background-color: #fff;
+      border: 2px solid #A02020;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .drawing-tile:hover {
+      transform: scale(1.02);
+    }
+
+    .drawing-tile h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 18px;
+      color: #A02020;
+      margin-bottom: 10px;
+    }
+
+    .drawing-preview {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      background-color: #f8f8f8;
+    }
+
+    .drawing-download {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #A02020;
+      text-decoration: underline;
+	}
+	
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 10;
+	  left: 0;
+	  top: 0;
+	  width: 100%;
+	  height: 100%;
+	  background-color: rgba(0,0,0,0.75);
+	  justify-content: center;
+	  align-items: center;
+	}
+
+	.modal-content {
+	  background-color: white;
+	  padding: 20px;
+	  border-radius: 12px;
+	  max-width: 90%;
+	  max-height: 90%;
+	  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+	}
+
+	.modal-content img {
+	  max-width: 100%;
+	  max-height: 80vh;
+	}	
+	
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="logo">Van Giesen Designs</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+		<li><a href="mechanical-drawings.html">Mechanical Details</a></li>
+        <li><a href="mymaps.html">My Maps</a></li>
+		<li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+		<li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2>Mechanical Details</h2>
+
+	<div class="gallery">
+		<div class="drawing-tile" onclick="openModal('files/DUCTWALLSUPPORTS.svg')">
+		  <h3>Duct Wall Support</h3>
+		  <img src="files/DUCTWALLSUPPORTS.svg" class="drawing-preview" alt="Duct Wall Support Detail">
+		  <a href="files/DUCTWALLSUPPORTS.dxf" class="drawing-download" download>Download DXF</a>
+		</div>
+
+    <!-- Add more drawing tiles here -->
+	
+		<div class="drawing-tile" onclick="openModal('files/3_Way_Splitter_Horizontal.jpeg')">
+			  <h3>3 Way Splitter Duct Revit Family</h3>
+			  <img src="files/3_Way_Splitter_Horizontal.jpeg" class="drawing-preview" alt="3 Way Splitter Duct Revit Family">
+			  <a href="files/3_Way_Splitter_Horizontal.zip" class="drawing-download" download>Download ZIP</a>
+			</div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Van Giesen Designs. All rights reserved.</p>
+  </footer>
+  
+<div id="svgModal" class="modal" onclick="closeModal()">
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Drawing Preview">
+  </div>
+</div>
+
+<script>
+  function openModal(svgPath) {
+    const modal = document.getElementById("svgModal");
+    const img = document.getElementById("modalImage");
+    img.src = svgPath;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("svgModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

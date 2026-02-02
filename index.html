@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vangiesen Designs</title>
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Page-specific overrides */
+    #typed-text {
+      color: #ffffff;
+      font-weight: bold;
+      font-family: 'Instrument Serif', serif;
+    }
+  </style>
+</head>
+
+
+
+<body>
+    <header>
+        <h1 class="logo">Van Giesen Designs asdf</h1>
+        <nav>
+            <ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="mechanical-drawings.html">Mechanical Drawings</a></li>
+				<li><a href="mymaps.html">My Maps</a></li>
+				<li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="hero">
+        <div class="hero-content">
+			<h2>I am a <span id="typed-text"></span></h2>
+        </div>
+    </section>
+    
+<section id="contact">
+    <h2>Contact Me</h2>
+	<form name="contact" method="POST" netlify action="/thank-you.html">
+		<input type="hidden" name="form-name" value="contact">
+		<label for="name">Name:</label><br>
+		<input type="text" id="name" name="name" required><br><br>
+
+		<label for="email">Email:</label><br>
+		<input type="email" id="email" name="email" required><br><br>
+
+		<label for="message">Message:</label><br>
+		<textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+		<button type="submit">Send</button>
+	</form>
+</section>
+	
+    <footer>
+        <p>&copy; 2025 Van Giesen Designs. All rights reserved.</p>
+    </footer>
+	
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+  const typed = new Typed('#typed-text', {
+    strings: ['mechanical engineer', 'map enthusiast', 'bike infrastructure advocate'],
+    typeSpeed: 60,
+    backSpeed: 40,
+    backDelay: 1000,
+    loop: true
+  });
+</script>
+
+</body>
+</html>

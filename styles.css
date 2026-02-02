@@ -1,0 +1,209 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=New+Reader&display=swap');
+
+
+#about {
+  text-align: center;
+  padding: 2rem;
+}
+
+.about-list {
+  display: inline-block;
+  text-align: left;
+  list-style-position: outside;
+  padding-left: 1.2em;
+  margin: 0 auto;
+}
+
+.about-list .github-link {
+  list-style: none; /* remove default bullet */
+  padding-left: 30px; /* space for the icon */
+  background: url('github_logo.png') no-repeat left center;
+  background-size: 20px 20px; /* adjust icon size */
+  margin-bottom: 10px;
+}
+
+body {
+    font-family: 'Instrument Serif', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCE366; /* Soft yellow background */
+    color: #000;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #FCE366; /* Matches background */
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: light;
+    color: #A02020; /* Red text */
+    font-family: 'Instrument Serif', serif;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weigt: light;
+    color: #A02020; /* Red text */
+    font-family: 'New Reader', sans-serif;
+}
+
+/* Hero Section */
+#hero {
+    background: url('IMG_2625.jpeg') no-repeat center center/cover;
+    height: 1000px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FCE366; /* Yellow text */
+    padding: 50px;
+    margin: 20px;
+    border: 60px solid #FCE366; /* Offset around the image */
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Instrument Serif', serif;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fffbe6;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'New Reader', sans-serif;
+    color: #000;
+}
+
+#contact label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: 'New Reader', sans-serif;
+}
+
+#contact h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: 'New Reader', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: none;
+  border-color: #A02020;
+  box-shadow: 0 0 5px rgba(160, 32, 32, 0.4);
+}
+
+#contact button {
+    background-color: #A02020;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background-color: #801818;
+}
+
+/* Portfolio Section */
+.portfolio-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'NewReader', sans-serif;
+}
+
+.portfolio-year {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  font-size: 1.25rem;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.plus-icon {
+  float: right;
+  font-size: 1.5rem;
+}
+
+.portfolio-content {
+  padding: 1rem;
+  border-top: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+.project h3 {
+  margin: 0.5rem 0 0.25rem;
+  text-align: left;
+}
+
+.project p {
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+/* Footer */
+footer {
+    background-color: #FCE366;
+    padding: 10px 0;
+    font-size: 14px;
+}

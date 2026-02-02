@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1 class="logo">Van Giesen Designs</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+		<li><a href="mechanical-drawings.html">Mechanical Details</a></li>
+        <li><a href="mymaps.html">My Maps</a></li>
+		<li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="portfolio-container">
+    <h1>Portfolio</h1>
+
+    <!-- Repeat this block for each year -->
+    <div class="portfolio-year">
+      <button class="toggle-btn">2024 <span class="plus-icon">+</span></button>
+      <div class="portfolio-content hidden">
+	  
+        <div class="project">
+          <h3>CAGT Chiller Replacement Project</h3>
+          <p>
+		  Design for the replacement of two 575 Ton chillers with a single 575 Ton machine and a heat exchanger to operate in water-side economizer mode.
+		  Design incorporated appropriate safety code investigation for accommodating an existing open-flame boiler and the new chillers.
+		  </p>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="portfolio-year">
+      <button class="toggle-btn">2023 <span class="plus-icon">+</span></button>
+      <div class="portfolio-content hidden">
+        <div class="project">
+          <h3>Forestry 3 Fourth Floor AHU Replacement</h3>
+          <p>
+		  Design for the replacement of two air-handling units serviing a combination of office and BSL-2 laboratory spaces.
+		  To keep project costs down, design accommodated utilizing existing ductwork as much as possible.
+		  </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more years as needed -->
+
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
