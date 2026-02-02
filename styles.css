@@ -188,6 +188,22 @@ nav ul li a {
   background-color: #801818;
 }
 
+.counter-multiplier {
+  margin-top: 12px;
+  background-color: #fff;
+  color: #A02020;
+  border: 2px solid #A02020;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.counter-multiplier:hover {
+  background-color: #f5e7b0;
+}
+
 #counter-value {
   min-width: 2.5rem;
   text-align: center;
