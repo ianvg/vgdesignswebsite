@@ -204,6 +204,32 @@ nav ul li a {
   background-color: #f5e7b0;
 }
 
+.equation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.equation-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+}
+
+.equation-grid input {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.equation-result {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 #counter-value {
   min-width: 2.5rem;
   text-align: center;

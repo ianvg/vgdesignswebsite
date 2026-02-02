@@ -36,6 +36,45 @@
         Multiplier: x1
       </button>
     </div>
+
+    <div class="portfolio-counter">
+      <h2>Equation (B)</h2>
+      <p>
+        pv = RT {1 + (1 + C/T)^(3/2) · b/(v-b)} - a/v
+      </p>
+      <div class="equation-grid">
+        <label>
+          v
+          <input type="number" id="eq-v" value="1" step="0.01" />
+        </label>
+        <label>
+          T
+          <input type="number" id="eq-t" value="300" step="1" />
+        </label>
+        <label>
+          a
+          <input type="number" id="eq-a" value="0" step="0.01" />
+        </label>
+        <label>
+          b
+          <input type="number" id="eq-b" value="0" step="0.01" />
+        </label>
+        <label>
+          C
+          <input type="number" id="eq-c" value="0" step="0.01" />
+        </label>
+        <label>
+          R
+          <input type="number" id="eq-r" value="8.314" step="0.001" />
+        </label>
+      </div>
+      <button type="button" class="counter-multiplier" id="eq-calc">
+        Calculate p
+      </button>
+      <div class="equation-result">
+        p = <span id="eq-p">—</span>
+      </div>
+    </div>
   </div>
 
   <script src="scripts.js"></script>
