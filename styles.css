@@ -159,6 +159,55 @@ nav ul li a {
   font-family: 'NewReader', sans-serif;
 }
 
+.portfolio-title {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.portfolio-subtitle {
+  font-size: 1rem;
+  color: #A02020;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-counter {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fffbe6;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.5rem;
+}
+
+.counter-btn {
+  background-color: #A02020;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.counter-btn:hover {
+  background-color: #801818;
+}
+
+#counter-value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
 .portfolio-year {
   margin-bottom: 1.5rem;
   border: 1px solid #ccc;

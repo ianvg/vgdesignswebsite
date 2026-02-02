@@ -13,3 +13,19 @@ document.querySelectorAll('.toggle-btn').forEach(button => {
     }
   });
 });
+
+const counterValue = document.getElementById('counter-value');
+if (counterValue) {
+  let count = Number(counterValue.textContent) || 0;
+  const update = () => {
+    counterValue.textContent = String(count);
+  };
+
+  document.querySelectorAll('.counter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const delta = Number(button.dataset.delta) || 0;
+      count += delta;
+      update();
+    });
+  });
+}
