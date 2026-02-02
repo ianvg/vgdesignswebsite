@@ -159,20 +159,6 @@ nav ul li a {
   font-family: 'NewReader', sans-serif;
 }
 
-.portfolio-title {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.portfolio-subtitle {
-  font-size: 1rem;
-  color: #A02020;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
 .portfolio-counter {
   margin: 1.5rem 0 2rem;
   padding: 1rem;
